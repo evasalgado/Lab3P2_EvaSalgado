@@ -50,8 +50,10 @@ public class Lab3P2_EvaSalgado {
                     AgregarAutobus();
                     break;
                 case 4:
+                    modificarVehiculo();
                     break;
                 case 5:
+                    eliminarVehiculo();
                     break;
                 case 6:
                     mostrarVehiculo();
@@ -110,7 +112,7 @@ public class Lab3P2_EvaSalgado {
         puertas = leer.nextInt();
 
         System.out.println("Ingrese tipo de transmision: ");
-        transmision = leer.next();
+        transmision = leer.nextLine();
 
         System.out.println("Ingrese numero de asientos: ");
         asientos = leer.nextInt();
@@ -163,7 +165,7 @@ public class Lab3P2_EvaSalgado {
         System.out.println("Ingrese la cantidad de consumo de combustible que consume: ");
         consumo = leer.nextDouble();
 
-        vehiculos.add(new Motocicleta(tipo, year, tipo, tipo, color, año, peso, peso, consumo));
+        vehiculos.add(new Motocicleta(placa, year, modelo, tipo, color, año, velocidad, peso, consumo));
         System.out.println("Motocicleta ingresada correctamente");
     }
 
@@ -214,19 +216,112 @@ public class Lab3P2_EvaSalgado {
         vehiculos.add(new Autobus(placa, marca, modelo, tipo, color, año, cantpasajero, numejes, longitud));
         System.out.println("Bus ingresado correctamente");
     }
-    
-    public static void modificarVehiculo(){
-        
+
+    public static void modificarVehiculo() throws ParseException {
+        if (vehiculos.isEmpty()) {
+            System.out.println("Aqui no hay nada");
+        } else {
+            String placa;
+            String marca;
+            String modelo;
+            String tipo;
+            Color color;
+            Date año = new Date(0);
+            mostrarVehiculo();
+            System.out.println("");
+            System.out.println("Ingrese el indice del elemento que desea eliminar: ");
+            int i = leer.nextInt();
+            if (i >= 0 && i < vehiculos.size()) {
+                System.out.println("Ingrese lo que desea editar: \n"
+                        + "a. Placa\n"
+                        + "b. marca\n"
+                        + "c. modelo\n"
+                        + "d. tipo\n"
+                        + "e. color\n"
+                        + "f. anio");
+                char opcion = leer.next().charAt(0);
+                switch (opcion) {
+                    case 'a':
+                        System.out.println("Ingrese una placa (ingrese h primero): ");
+                        placa = leer.next();
+                        ((Automovil)vehiculos.get(i)).setPlaca(placa);
+                        break;
+                    case 'b':
+                        System.out.println("Ingrese marca: ");
+                        marca = leer.nextLine();
+                        marca = leer.nextLine();
+                        ((Automovil)vehiculos.get(i)).setMarca(marca);
+                        break;
+                    case 'c':
+                        System.out.println("Ingrese modelo: ");
+                        modelo = leer.nextLine();
+                         ((Automovil)vehiculos.get(i)).setModelo(modelo);
+                        break;
+                    case 'd':
+                        System.out.println("Ingrese el tipo de automovil que es: ");
+                        tipo = leer.next();
+                         ((Automovil)vehiculos.get(i)).setTipo(tipo);
+                        break;
+                    case 'e':
+                        color = JColorChooser.showDialog(null, "Elija el color del auto", Color.BLUE);
+                        System.out.println(color);
+                        ((Automovil)vehiculos.get(i)).setColor(color);
+                        break;
+                    case 'f':
+                        System.out.println("Ingrese el anio de creacion: ");
+                        String year = leer.next();
+                        DateFormat df = new SimpleDateFormat("yyyy");
+                        año = df.parse(year);
+                       ((Automovil)vehiculos.get(i)).setAño(año);
+                        break;
+                    default:
+                        System.out.println("Opcion no valida");
+                        break;
+                }
+
+            } else {
+                System.out.println("Indice fuera de rango");
+            }
+        }
+
     }
-     static void mostrarVehiculo(){
+
+    public static void eliminarVehiculo() {
+        if (vehiculos.isEmpty()) {
+            System.out.println("Lista vacia");
+        } else {
+            mostrarVehiculo();
+            System.out.println("Ingrese el indice del elemento que desea eliminar: ");
+            int i = leer.nextInt();
+            if (i >= 0 && i < vehiculos.size()) {
+                if (vehiculos.get(i) instanceof Automovil || vehiculos.get(i) instanceof Motocicleta
+                        || vehiculos.get(i) instanceof Autobus) {
+                    System.out.println("Seguro quieres eliminar este elemento[s/n]: "); //S es si, n es no
+                    char resp = leer.next().charAt(0);
+                    if (resp == 's') {
+                        vehiculos.remove(i);
+                        System.out.println("Vehiculo eliminado exitosamente");
+                    } else {
+                        System.out.println("No se eliminó el vehiculo");
+                    }
+                } else {
+                    System.out.println("Vehiculo no encontrado");
+                }
+            } else {
+                System.out.println("Indice fuera de rango");
+            }
+        }
+    }
+
+    static void mostrarVehiculo() {
         if (vehiculos.isEmpty()) {
             System.out.println("No hay nada aun");
         } else {
             for (Object vehiculo : vehiculos) {
-                if (vehiculo instanceof Automovil||vehiculo instanceof Motocicleta||vehiculo instanceof Autobus) {
-                        Object object = (Object) vehiculo;
-                        System.out.println(vehiculos.indexOf(vehiculo)+"-"+vehiculo+"\n");
-                    }
+                if (vehiculo instanceof Automovil || vehiculo instanceof Motocicleta || vehiculo instanceof Autobus) {
+                    Object object = (Object) vehiculo;
+                    System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
+                }
             }
         }
     }

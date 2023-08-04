@@ -111,7 +111,7 @@ public class Motocicleta {
 
     @Override
     public String toString() {
-        return "placa: " + placa + "\nmarca: " + marca + "\nmodelo: " + modelo + "\ntipo: " + tipo + "\ncolor:" + color + "\nanio:"+año +"\nvelocidad: " + velocidad + "\npeso: " + peso + "\nconsumo: " + consumo;
+        return "placa: " + placa + "\nmarca: " + marca + "\nmodelo: " + modelo + "\ntipo: " + tipo + "\ncolor:" + color + "\nanio:"+año +"\nvelocidad: " + velocidad+"km/h" + "\npeso: " + peso +"kg"+ "\nconsumo: " + consumo;
     }
     
     

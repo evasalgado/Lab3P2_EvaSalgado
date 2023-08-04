@@ -470,6 +470,10 @@ public class Lab3P2_EvaSalgado {
                     }
 
                 } else if (vehiculos.get(i) instanceof Motocicleta) {
+
+                    double velocidad;
+                    double peso;
+                    double consumo;
                     System.out.println("Ingrese lo que desea editar: \n"
                             + "a. Placa\n"
                             + "b. marca\n"
@@ -550,8 +554,40 @@ public class Lab3P2_EvaSalgado {
                             ;
                             break;
                         case 'g':
+                            System.out.println("Ingrese la velocidad maxima de la motocicleta: ");
+                            velocidad = leer.nextDouble();
+                            if (velocidad > 120) {
+                                while (velocidad > 120) {
+                                    System.out.println("Velocidad  Invalida");
+                                    System.out.println("Ingrese la velocidad maxima de la motocicleta: ");
+                                    velocidad = leer.nextDouble();
+                                }
+                            } else if (velocidad < 60) {
+                                while (velocidad < 60 || velocidad > 120) {
+                                    System.out.println("Velocidad  Invalida");
+                                    System.out.println("Ingrese la velocidad maxima de la motocicleta: ");
+                                    velocidad = leer.nextDouble();
+                                }
+
+                            }
+
+                            ((Motocicleta) vehiculos.get(i)).setVelocidad(velocidad);
                         case 'h':
+                            System.out.println("Ingrese el peso de la motocicleta: ");
+                            peso = leer.nextDouble();
+
+                            ((Motocicleta) vehiculos.get(i)).setPeso(peso);
                         case 'i':
+                            System.out.println("Ingrese la cantidad de consumo de combustible que consume: ");
+                            consumo = leer.nextDouble();
+                            if (consumo > 100) {
+                                while (consumo > 100) {
+                                    System.out.println("Limite de consumo excedido");
+                                    System.out.println("Ingrese la cantidad de consumo de combustible que consume: ");
+                                    consumo = leer.nextDouble();
+                                }
+                            }
+                            ((Motocicleta) vehiculos.get(i)).setConsumo(consumo);
                         default:
                             System.out.println("Caracter invalido");
                             break;

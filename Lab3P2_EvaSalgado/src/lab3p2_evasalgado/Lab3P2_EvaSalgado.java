@@ -7,6 +7,7 @@ package lab3p2_evasalgado;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
+import java.awt.Color;
 /**
  *
  * @author evaja

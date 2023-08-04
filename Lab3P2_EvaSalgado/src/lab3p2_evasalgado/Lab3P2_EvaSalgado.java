@@ -78,7 +78,8 @@ public class Lab3P2_EvaSalgado {
         String tipo;
         Color color;
         Date año = new Date(0);
-
+       
+        
         String combustible;
         int puertas;
         String transmision;
@@ -134,6 +135,8 @@ public class Lab3P2_EvaSalgado {
 
             }
         }
+        System.out.println("Ingrese costo de vehiculo: ");
+        double costo = leer.nextDouble();
         System.out.println("Ingrese cantidad de puertas: ");
         puertas = leer.nextInt();
         if (puertas > 4) {
@@ -155,7 +158,7 @@ public class Lab3P2_EvaSalgado {
                 asientos = leer.nextInt();
             }
         }
-        vehiculos.add(new Automovil(placa, marca, modelo, tipo, color, año, combustible, puertas, transmision, asientos));
+        vehiculos.add(new Automovil(placa, marca, modelo, tipo, color, año, combustible, puertas, transmision, asientos,costo));
         System.out.println("Automovil ingresado correctamente");
     }
 
@@ -220,7 +223,8 @@ public class Lab3P2_EvaSalgado {
 
             }
         }
-
+        System.out.println("Ingrese costo de motocicleta: ");
+        double costo = leer.nextDouble();
         System.out.println("Ingrese la velocidad maxima de la motocicleta: ");
         velocidad = leer.nextDouble();
         if (velocidad > 120) {
@@ -250,7 +254,7 @@ public class Lab3P2_EvaSalgado {
                 consumo = leer.nextDouble();
             }
         }
-        vehiculos.add(new Motocicleta(placa, marca, modelo, tipo, color, año, velocidad, peso, consumo));
+        vehiculos.add(new Motocicleta(placa, marca, modelo, tipo, color, año, velocidad, peso, consumo,costo));
         System.out.println("Motocicleta ingresada correctamente");
     }
 
@@ -317,7 +321,8 @@ public class Lab3P2_EvaSalgado {
 
             }
         }
-
+        System.out.println("Ingrese costo de bus: ");
+        double costo = leer.nextDouble();
         System.out.println("Ingrese la capacidad de pasajeros del bus: ");
         cantpasajero = leer.nextInt();
 
@@ -334,7 +339,7 @@ public class Lab3P2_EvaSalgado {
         System.out.println("Ingrese la longitud del bus: ");
         longitud = leer.nextDouble();
 
-        vehiculos.add(new Autobus(placa, marca, modelo, tipo, color, año, cantpasajero, numejes, longitud));
+        vehiculos.add(new Autobus(placa, marca, modelo, tipo, color, año, cantpasajero, numejes, longitud,costo));
         System.out.println("Bus ingresado correctamente");
     }
 
@@ -739,14 +744,27 @@ public class Lab3P2_EvaSalgado {
             }
         }
     }
+    
+    public static void generarBoletin(){
+        
+    }
 
     static void mostrarVehiculo() {
         if (vehiculos.isEmpty()) {
             System.out.println("No hay nada aun");
         } else {
             for (Object vehiculo : vehiculos) {
-                if (vehiculo instanceof Automovil || vehiculo instanceof Motocicleta || vehiculo instanceof Autobus) {
+                if (vehiculo instanceof Automovil ) {
+                    System.out.println("Automoviles: \n");
                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
+                } 
+                if( vehiculo instanceof Motocicleta ){
+                    System.out.println("Motocicletas: \n");
+                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
+                }
+                if (vehiculo instanceof Autobus){
+                    System.out.println("Autobuses: \n");
+                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
                 }
             }
         }

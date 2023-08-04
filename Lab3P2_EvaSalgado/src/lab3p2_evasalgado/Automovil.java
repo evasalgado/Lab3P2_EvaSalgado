@@ -20,6 +20,7 @@ public class Automovil {
     protected String tipo;
     protected Color color;
     protected Date año;
+    protected double costo;
     private String combustible;
     private int puertas;
     private String transmision;
@@ -28,18 +29,19 @@ public class Automovil {
     public Automovil() {
     }
 
-    public Automovil(String p) {
-        this.placa = p;
+    public Automovil(double c) {
+        this.costo = c;
     }
-
+    
    
-    public Automovil(String p, String m, String mod, String t, Color c, Date a, String comb, int puer, String tran, int as) {
+    public Automovil(String p, String m, String mod, String t, Color c, Date a, String comb, int puer, String tran, int as, double cos) {
         this.placa = p;
         this.marca = m;
         this.modelo = mod;
         this.tipo = t;
         this.color = c;
         this.año=año;
+        this.costo=cos;
         this.combustible = comb;
         this.puertas = puer;
         this.transmision = tran;
@@ -93,6 +95,15 @@ public class Automovil {
 
     public void setAño(Date a) {
         this.año = a;
+    }
+
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double c) {
+        this.costo = c;
     }
     
     public String getCombustible() {

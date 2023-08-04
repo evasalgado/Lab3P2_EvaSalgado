@@ -19,6 +19,7 @@ public class Autobus {
     protected String tipo;
     protected Color color; 
     protected Date año;
+    protected double costo;
     private int cantpasajero;
     private int numejes;
     private double longitud;
@@ -27,7 +28,11 @@ public class Autobus {
         
     }
 
-    public Autobus(String placa, String marca, String modelo, String tipo, Color color, Date a, int cantpasajero, int numejes, double longitud) {
+   public Autobus(double c) {
+        this.costo = c;
+    }
+    
+    public Autobus(String placa, String marca, String modelo, String tipo, Color color, Date a, int cantpasajero, int numejes, double longitud, double cos) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;

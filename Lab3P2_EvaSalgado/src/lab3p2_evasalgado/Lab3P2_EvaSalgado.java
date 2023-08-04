@@ -89,12 +89,12 @@ public class Lab3P2_EvaSalgado {
         String[] h = placa.split("");
         if (h[7].endsWith("")) {
             if (!h[0].equals("B")) {
-               while (!h[0].equals("B")) {
+                while (!h[0].equals("B")) {
                     System.out.println("Placa no valida");
                     System.out.println("Ingrese una placa (ingrese h primero): ");
                     placa = leer.next();
                 }
-            } 
+            }
         } else {
             System.out.println("Limite de caracter excedido");
             while (!h[7].equals("")) {
@@ -148,8 +148,8 @@ public class Lab3P2_EvaSalgado {
 
         System.out.println("Ingrese numero de asientos: ");
         asientos = leer.nextInt();
-        if (asientos>6) {
-            while (asientos>6) {                
+        if (asientos > 6) {
+            while (asientos > 6) {
                 System.out.println("Exceso de asientos encontrado: ");
                 System.out.println("Ingrese numero de asientos: ");
                 asientos = leer.nextInt();
@@ -243,13 +243,13 @@ public class Lab3P2_EvaSalgado {
 
         System.out.println("Ingrese la cantidad de consumo de combustible que consume: ");
         consumo = leer.nextDouble();
-        if (consumo>100) {
-            while (consumo>100) {                
+        if (consumo > 100) {
+            while (consumo > 100) {
                 System.out.println("Limite de consumo excedido");
                 System.out.println("Ingrese la cantidad de consumo de combustible que consume: ");
                 consumo = leer.nextDouble();
             }
-        } 
+        }
         vehiculos.add(new Motocicleta(placa, marca, modelo, tipo, color, año, velocidad, peso, consumo));
         System.out.println("Motocicleta ingresada correctamente");
     }
@@ -279,7 +279,7 @@ public class Lab3P2_EvaSalgado {
                     placa = leer.next();
                 }
 
-            } 
+            }
         } else {
             System.out.println("Limite de caracter excedido");
             while (!h[7].equals("")) {
@@ -323,14 +323,14 @@ public class Lab3P2_EvaSalgado {
 
         System.out.println("Ingrese el numero de ejes : ");
         numejes = leer.nextInt();
-         if (numejes>2) {
-              while (numejes>2) {                 
-                  System.out.println("Limite de ejes encontrado");
-                  System.out.println("Ingrese el numero de ejes : ");
-                  numejes = leer.nextInt();
-             }
-  
+        if (numejes > 2) {
+            while (numejes > 2) {
+                System.out.println("Limite de ejes encontrado");
+                System.out.println("Ingrese el numero de ejes : ");
+                numejes = leer.nextInt();
             }
+
+        }
         System.out.println("Ingrese la longitud del bus: ");
         longitud = leer.nextDouble();
 
@@ -352,58 +352,327 @@ public class Lab3P2_EvaSalgado {
             System.out.println("");
             System.out.println("Ingrese el indice del elemento que desea eliminar: ");
             int i = leer.nextInt();
-
             if (i >= 0 && i < vehiculos.size()) {
-                System.out.println("Ingrese lo que desea editar: \n"
-                        + "a. Placa\n"
-                        + "b. marca\n"
-                        + "c. modelo\n"
-                        + "d. tipo\n"
-                        + "e. color\n"
-                        + "f. anio");
-                char opcion = leer.next().charAt(0);
-                switch (opcion) {
-                    case 'a':
-                        System.out.println("Ingrese una placa (ingrese h primero): ");
-                        placa = leer.next();
-                        ((Automovil) vehiculos.get(i)).setPlaca(placa);
-                        break;
-                    case 'b':
-                        System.out.println("Ingrese marca: ");
-                        marca = leer.nextLine();
-                        marca = leer.nextLine();
-                        ((Automovil) vehiculos.get(i)).setMarca(marca);
-                        break;
-                    case 'c':
-                        System.out.println("Ingrese modelo: ");
-                        modelo = leer.nextLine();
-                        ((Automovil) vehiculos.get(i)).setModelo(modelo);
-                        break;
-                    case 'd':
-                        System.out.println("Ingrese el tipo de automovil que es: ");
-                        tipo = leer.next();
-                        ((Automovil) vehiculos.get(i)).setTipo(tipo);
-                        break;
-                    case 'e':
-                        color = JColorChooser.showDialog(null, "Elija el color del auto", Color.BLUE);
-                        System.out.println(color);
-                        ((Automovil) vehiculos.get(i)).setColor(color);
-                        break;
-                    case 'f':
-                        System.out.println("Ingrese el anio de creacion: ");
-                        String year = leer.next();
-                        DateFormat df = new SimpleDateFormat("yyyy");
-                        año = df.parse(year);
-                        ((Automovil) vehiculos.get(i)).setAño(año);
-                        break;
-                    default:
-                        System.out.println("Opcion no valida");
-                        break;
-                }
+                if (vehiculos.get(i) instanceof Automovil) {
+                    System.out.println("Ingrese lo que desea editar: \n"
+                            + "a. Placa\n"
+                            + "b. marca\n"
+                            + "c. modelo\n"
+                            + "d. tipo\n"
+                            + "e. color\n"
+                            + "f. anio\n"
+                            + "g. puertas\n"
+                            + "h. transmicion\n"
+                            + " i. asientos");
+                    char opcion = leer.next().charAt(0);
+                    switch (opcion) {
+                        case 'a':
 
-            } else {
-                System.out.println("Indice fuera de rango");
+                            String combustible;
+                            int puertas;
+                            String transmision;
+                            int asientos;
+                            System.out.println("Ingrese una placa (ingrese h primero): ");
+                            placa = leer.next();
+                            ((Automovil) vehiculos.get(i)).setPlaca(placa);
+                            String[] h = placa.split("");
+                            if (h[7].endsWith("")) {
+                                if (!h[0].equals("H")) {
+                                    while (!h[0].equals("H")) {
+                                        System.out.println("Placa no valida");
+                                        System.out.println("Ingrese una placa (ingrese h primero): ");
+                                        placa = leer.next();
+                                    }
+                                }
+                            } else {
+                                System.out.println("Limite de caracter excedido");
+                                while (!h[7].equals("")) {
+                                    System.out.println("Placa no valida");
+                                    System.out.println("Ingrese una placa (ingrese h primero): ");
+                                    placa = leer.next();
+
+                                }
+                            }
+                            break;
+                        case 'b':
+                            System.out.println("Ingrese marca: ");
+                            marca = leer.nextLine();
+                            marca = leer.nextLine();
+                            ((Automovil) vehiculos.get(i)).setMarca(marca);
+                            break;
+                        case 'c':
+                            System.out.println("Ingrese modelo: ");
+                            modelo = leer.nextLine();
+                            ((Automovil) vehiculos.get(i)).setModelo(modelo);
+                            break;
+                        case 'd':
+                            System.out.println("Ingrese el tipo de automovil que es: ");
+                            tipo = leer.next();
+                            ((Automovil) vehiculos.get(i)).setTipo(tipo);
+                            break;
+                        case 'e':
+                            color = JColorChooser.showDialog(null, "Elija el color del auto", Color.BLUE);
+                            System.out.println(color);
+                            ((Automovil) vehiculos.get(i)).setColor(color);
+                            break;
+                        case 'f':
+                            System.out.println("Ingrese el anio de creacion: ");
+                            String year = leer.next();
+                            String a[] = year.split("");
+                            if (a[4].endsWith("")) {
+                                DateFormat df = new SimpleDateFormat("yyyy");
+                                año = df.parse(year);
+                            } else {
+                                while (!a[4].endsWith("")) {
+                                    System.out.println("Fecha ingresada no es valida");
+                                    System.out.println("Ingrese el anio de creacion: ");
+                                    year = leer.next();
+
+                                }
+                            }
+                            ((Automovil) vehiculos.get(i)).setAño(año);
+                            ;
+                            break;
+                        case 'g':
+                            System.out.println("Ingrese cantidad de puertas: ");
+                            puertas = leer.nextInt();
+                            if (puertas > 4) {
+                                while (puertas > 4) {
+                                    System.out.println("Numero de puertas excedida");
+                                    System.out.println("Ingrese cantidad de puertas: ");
+                                    puertas = leer.nextInt();
+                                }
+                            }
+                            ((Automovil) vehiculos.get(i)).setPuertas(puertas);
+
+                            break;
+                        case 'h':
+                            System.out.println("Ingrese tipo de transmision: ");
+                            transmision = leer.nextLine();
+                            ((Automovil) vehiculos.get(i)).setTransmision(transmision);
+
+                            break;
+                        case 'i':
+                            System.out.println("Ingrese numero de asientos: ");
+                            asientos = leer.nextInt();
+                            if (asientos > 6) {
+                                while (asientos > 6) {
+                                    System.out.println("Exceso de asientos encontrado: ");
+                                    System.out.println("Ingrese numero de asientos: ");
+                                    asientos = leer.nextInt();
+                                }
+                            }
+                            ((Automovil) vehiculos.get(i)).setAsientos(asientos);
+                            break;
+                        default:
+                            System.out.println("Opcion no valida");
+                            break;
+                    }
+
+                } else if (vehiculos.get(i) instanceof Motocicleta) {
+                    System.out.println("Ingrese lo que desea editar: \n"
+                            + "a. Placa\n"
+                            + "b. marca\n"
+                            + "c. modelo\n"
+                            + "d. tipo\n"
+                            + "e. color\n"
+                            + "f. anio\n"
+                            + "g. velocidad\n"
+                            + "h. peso\n"
+                            + " i. consumo de combustible");
+                    char opcion = leer.next().charAt(0);
+                    switch (opcion) {
+                        case 'a':
+
+                            String combustible;
+                            int puertas;
+                            String transmision;
+                            int asientos;
+                            System.out.println("Ingrese una placa (ingrese h primero): ");
+                            placa = leer.next();
+                            ((Motocicleta) vehiculos.get(i)).setPlaca(placa);
+                            String[] h = placa.split("");
+                            if (h[7].endsWith("")) {
+                                if (!h[0].equals("B")) {
+                                    while (!h[0].equals("B")) {
+                                        System.out.println("Placa no valida");
+                                        System.out.println("Ingrese una placa (ingrese h primero): ");
+                                        placa = leer.next();
+                                    }
+                                }
+                            } else {
+                                System.out.println("Limite de caracter excedido");
+                                while (!h[7].equals("")) {
+                                    System.out.println("Placa no valida");
+                                    System.out.println("Ingrese una placa (ingrese h primero): ");
+                                    placa = leer.next();
+
+                                }
+                            }
+                            break;
+                        case 'b':
+                            System.out.println("Ingrese marca: ");
+                            marca = leer.nextLine();
+                            marca = leer.nextLine();
+                            ((Motocicleta) vehiculos.get(i)).setMarca(marca);
+                            break;
+                        case 'c':
+                            System.out.println("Ingrese modelo: ");
+                            modelo = leer.nextLine();
+                            ((Motocicleta) vehiculos.get(i)).setModelo(modelo);
+                            break;
+                        case 'd':
+                            System.out.println("Ingrese el tipo de automovil que es: ");
+                            tipo = leer.next();
+                            ((Motocicleta) vehiculos.get(i)).setTipo(tipo);
+                            break;
+                        case 'e':
+                            color = JColorChooser.showDialog(null, "Elija el color del auto", Color.BLUE);
+                            System.out.println(color);
+                            ((Motocicleta) vehiculos.get(i)).setColor(color);
+                            break;
+                        case 'f':
+                            System.out.println("Ingrese el anio de creacion: ");
+                            String year = leer.next();
+                            String a[] = year.split("");
+                            if (a[4].endsWith("")) {
+                                DateFormat df = new SimpleDateFormat("yyyy");
+                                año = df.parse(year);
+                            } else {
+                                while (!a[4].endsWith("")) {
+                                    System.out.println("Fecha ingresada no es valida");
+                                    System.out.println("Ingrese el anio de creacion: ");
+                                    year = leer.next();
+
+                                }
+                            }
+                            ((Motocicleta) vehiculos.get(i)).setAño(año);
+                            ;
+                            break;
+                        case 'g':
+                        case 'h':
+                        case 'i':
+                        default:
+                            System.out.println("Caracter invalido");
+                            break;
+                    }
+
+                } else if (vehiculos.get(i) instanceof Autobus) {
+                    int cantpasajero;
+                    int numejes;
+                    double longitud;
+                    System.out.println("Ingrese lo que desea editar: \n"
+                            + "a. Placa\n"
+                            + "b. marca\n"
+                            + "c. modelo\n"
+                            + "d. tipo\n"
+                            + "e. color\n"
+                            + "f. anio\n"
+                            + "g. pasajeros\n"
+                            + "h. eje\n"
+                            + " i. longitud");
+                    char opcion = leer.next().charAt(0);
+                    switch (opcion) {
+                        case 'a':
+
+                            String combustible;
+                            int puertas;
+                            String transmision;
+                            int asientos;
+                            System.out.println("Ingrese una placa (ingrese h primero): ");
+                            placa = leer.next();
+                            ((Automovil) vehiculos.get(i)).setPlaca(placa);
+                            String[] h = placa.split("");
+                            if (h[7].endsWith("")) {
+                                if (!h[0].equals("H")) {
+                                    while (!h[0].equals("H")) {
+                                        System.out.println("Placa no valida");
+                                        System.out.println("Ingrese una placa (ingrese h primero): ");
+                                        placa = leer.next();
+                                    }
+                                }
+                            } else {
+                                System.out.println("Limite de caracter excedido");
+                                while (!h[7].equals("")) {
+                                    System.out.println("Placa no valida");
+                                    System.out.println("Ingrese una placa (ingrese h primero): ");
+                                    placa = leer.next();
+
+                                }
+                            }
+                            break;
+                        case 'b':
+                            System.out.println("Ingrese marca: ");
+                            marca = leer.nextLine();
+                            marca = leer.nextLine();
+                            ((Autobus) vehiculos.get(i)).setMarca(marca);
+                            break;
+                        case 'c':
+                            System.out.println("Ingrese modelo: ");
+                            modelo = leer.nextLine();
+                            ((Autobus) vehiculos.get(i)).setModelo(modelo);
+                            break;
+                        case 'd':
+                            System.out.println("Ingrese el tipo de automovil que es: ");
+                            tipo = leer.next();
+                            ((Autobus) vehiculos.get(i)).setTipo(tipo);
+                            break;
+                        case 'e':
+                            color = JColorChooser.showDialog(null, "Elija el color del auto", Color.BLUE);
+                            System.out.println(color);
+                            ((Autobus) vehiculos.get(i)).setColor(color);
+                            break;
+                        case 'f':
+                            System.out.println("Ingrese el anio de creacion: ");
+                            String year = leer.next();
+                            String a[] = year.split("");
+                            if (a[4].endsWith("")) {
+                                DateFormat df = new SimpleDateFormat("yyyy");
+                                año = df.parse(year);
+                            } else {
+                                while (!a[4].endsWith("")) {
+                                    System.out.println("Fecha ingresada no es valida");
+                                    System.out.println("Ingrese el anio de creacion: ");
+                                    year = leer.next();
+
+                                }
+                            }
+                            ((Autobus) vehiculos.get(i)).setAño(año);
+                            ;
+                        case 'g':
+                            System.out.println("Ingrese la capacidad de pasajeros del bus: ");
+                            cantpasajero = leer.nextInt();
+
+                            ((Autobus) vehiculos.get(i)).setCantpasajero(cantpasajero);
+                            break;
+                        case 'h':
+                            System.out.println("Ingrese el numero de ejes : ");
+                            numejes = leer.nextInt();
+                            if (numejes > 2) {
+                                while (numejes > 2) {
+                                    System.out.println("Limite de ejes encontrado");
+                                    System.out.println("Ingrese el numero de ejes : ");
+                                    numejes = leer.nextInt();
+                                }
+
+                            }
+
+                            ((Autobus) vehiculos.get(i)).setNumejes(numejes);
+                            break;
+                        case 'i':
+                            System.out.println("Ingrese la longitud del bus: ");
+                            longitud = leer.nextDouble();
+                            ((Autobus) vehiculos.get(i)).setLongitud(longitud);
+                            break;
+                        default:
+                            System.out.println("Caracter invalido");
+                            break;
+                    }
+                } else {
+                    System.out.println("Limite excedido");
+                }
             }
+
         }
 
     }

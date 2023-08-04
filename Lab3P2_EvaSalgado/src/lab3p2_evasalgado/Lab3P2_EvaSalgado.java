@@ -59,6 +59,8 @@ public class Lab3P2_EvaSalgado {
                     mostrarVehiculo();
                     break;
                 case 7:
+                    System.out.println("Tasa vehicular: ");
+                    generarBoletin();
                     opcion = 7;
                     break;
                 default:
@@ -78,8 +80,7 @@ public class Lab3P2_EvaSalgado {
         String tipo;
         Color color;
         Date año = new Date(0);
-       
-        
+
         String combustible;
         int puertas;
         String transmision;
@@ -158,7 +159,7 @@ public class Lab3P2_EvaSalgado {
                 asientos = leer.nextInt();
             }
         }
-        vehiculos.add(new Automovil(placa, marca, modelo, tipo, color, año, combustible, puertas, transmision, asientos,costo));
+        vehiculos.add(new Automovil(placa, marca, modelo, tipo, color, año, combustible, puertas, transmision, asientos));
         System.out.println("Automovil ingresado correctamente");
     }
 
@@ -223,8 +224,7 @@ public class Lab3P2_EvaSalgado {
 
             }
         }
-        System.out.println("Ingrese costo de motocicleta: ");
-        double costo = leer.nextDouble();
+     
         System.out.println("Ingrese la velocidad maxima de la motocicleta: ");
         velocidad = leer.nextDouble();
         if (velocidad > 120) {
@@ -254,7 +254,7 @@ public class Lab3P2_EvaSalgado {
                 consumo = leer.nextDouble();
             }
         }
-        vehiculos.add(new Motocicleta(placa, marca, modelo, tipo, color, año, velocidad, peso, consumo,costo));
+        vehiculos.add(new Motocicleta(placa, marca, modelo, tipo, color, año, velocidad, peso, consumo));
         System.out.println("Motocicleta ingresada correctamente");
     }
 
@@ -320,9 +320,7 @@ public class Lab3P2_EvaSalgado {
                 year = leer.next();
 
             }
-        }
-        System.out.println("Ingrese costo de bus: ");
-        double costo = leer.nextDouble();
+        };
         System.out.println("Ingrese la capacidad de pasajeros del bus: ");
         cantpasajero = leer.nextInt();
 
@@ -339,7 +337,7 @@ public class Lab3P2_EvaSalgado {
         System.out.println("Ingrese la longitud del bus: ");
         longitud = leer.nextDouble();
 
-        vehiculos.add(new Autobus(placa, marca, modelo, tipo, color, año, cantpasajero, numejes, longitud,costo));
+        vehiculos.add(new Autobus(placa, marca, modelo, tipo, color, año, cantpasajero, numejes, longitud));
         System.out.println("Bus ingresado correctamente");
     }
 
@@ -744,9 +742,33 @@ public class Lab3P2_EvaSalgado {
             }
         }
     }
-    
-    public static void generarBoletin(){
-        
+
+    public static void generarBoletin() {
+        double total=0;
+        if (vehiculos.isEmpty()) {
+            System.out.println("Lista vacia");
+        } else {
+            mostrarVehiculo();
+            System.out.println("Ingrese el indice del elemento que desea eliminar: ");
+            int i = leer.nextInt();
+            if (i >= 0 && i < vehiculos.size()) {
+                if (vehiculos.get(i) instanceof Automovil ) {
+                    System.out.println(vehiculos.get(i));
+                    total=275+250+1200;
+                } else if( vehiculos.get(i) instanceof Motocicleta){
+                    System.out.println(vehiculos.get(i));
+                    total=275+250+200; 
+                } else if(vehiculos.get(i) instanceof Autobus){
+                    System.out.println(vehiculos.get(i));
+                   total=275+250+1000;
+                } else {
+                    System.out.println("No encontrado el vehiculo");
+                }
+            } else {
+                System.out.println("Indice fuera de rango");
+            }
+        }
+        System.out.println("Total a pagar: lps"+total);
     }
 
     static void mostrarVehiculo() {
@@ -754,17 +776,17 @@ public class Lab3P2_EvaSalgado {
             System.out.println("No hay nada aun");
         } else {
             for (Object vehiculo : vehiculos) {
-                if (vehiculo instanceof Automovil ) {
+                if (vehiculo instanceof Automovil) {
                     System.out.println("Automoviles: \n");
                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
-                } 
-                if( vehiculo instanceof Motocicleta ){
-                    System.out.println("Motocicletas: \n");
-                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
                 }
-                if (vehiculo instanceof Autobus){
+                if (vehiculo instanceof Motocicleta) {
+                    System.out.println("Motocicletas: \n");
+                    System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
+                }
+                if (vehiculo instanceof Autobus) {
                     System.out.println("Autobuses: \n");
-                     System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
+                    System.out.println(vehiculos.indexOf(vehiculo) + "-" + vehiculo + "\n");
                 }
             }
         }

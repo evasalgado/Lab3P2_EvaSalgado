@@ -18,7 +18,6 @@ public class Motocicleta {
     protected String tipo;
     protected Color color;
     protected Date año;
-    protected double costo;
     private double velocidad;
     private double peso;
     private double consumo;
@@ -27,19 +26,16 @@ public class Motocicleta {
         
     }
 
-     public Motocicleta(double c) {
-        this.costo = c;
-    }
+  
     
-    
-    public Motocicleta(String p, String m, String mo, String t , Color c, Date a, double v, double peso, double cons, double cos) {
+    public Motocicleta(String p, String m, String mo, String t , Color c, Date a, double v, double peso, double cons) {
         this.placa = p;
         this.marca = m;
         this.modelo = mo;
         this.tipo = t;
         this.color = c;
         this.año = a;
-        this.costo=cos;
+
         this.velocidad = v;
         this.peso = peso;
         this.consumo = cons;
@@ -92,13 +88,7 @@ public class Motocicleta {
         this.año = a;
     }
 
-    public double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(double c) {
-        this.costo = costo;
-    }
+  
     
     public double getVelocidad() {
         return velocidad;

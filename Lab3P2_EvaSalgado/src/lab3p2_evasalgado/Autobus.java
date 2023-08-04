@@ -19,7 +19,7 @@ public class Autobus {
     protected String tipo;
     protected Color color; 
     protected Date año;
-    protected double costo;
+
     private int cantpasajero;
     private int numejes;
     private double longitud;
@@ -28,11 +28,9 @@ public class Autobus {
         
     }
 
-   public Autobus(double c) {
-        this.costo = c;
-    }
+
     
-    public Autobus(String placa, String marca, String modelo, String tipo, Color color, Date a, int cantpasajero, int numejes, double longitud, double cos) {
+    public Autobus(String placa, String marca, String modelo, String tipo, Color color, Date a, int cantpasajero, int numejes, double longitud) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
@@ -116,7 +114,7 @@ public class Autobus {
 
     @Override
     public String toString() {
-        return "placa: " + placa + "\nmarca: " + marca + "\nmodelo: " + modelo + "\ntipo: " + tipo + "\ncolor:" + color + "\nanio:"+año  + ",\ncantpasajero: " + cantpasajero + "\nnumejes: " + numejes + "\nlongitud: " + longitud ;
+        return "placa: " + placa + "\nmarca: " + marca + "\nmodelo: " + modelo + "\ntipo: " + tipo + "\ncolor:" + color + "\nanio:"+año  + ",\ncantpasajero: " + cantpasajero + "\nnumejes: " + numejes + "\nlongitud: " + longitud;
     }
     
     

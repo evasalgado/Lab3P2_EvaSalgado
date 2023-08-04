@@ -323,7 +323,14 @@ public class Lab3P2_EvaSalgado {
 
         System.out.println("Ingrese el numero de ejes : ");
         numejes = leer.nextInt();
-
+         if (numejes>2) {
+              while (numejes>2) {                 
+                  System.out.println("Limite de ejes encontrado");
+                  System.out.println("Ingrese el numero de ejes : ");
+                  numejes = leer.nextInt();
+             }
+  
+            }
         System.out.println("Ingrese la longitud del bus: ");
         longitud = leer.nextDouble();
 

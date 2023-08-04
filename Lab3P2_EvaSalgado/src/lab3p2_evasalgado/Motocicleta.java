@@ -5,17 +5,19 @@
 package lab3p2_evasalgado;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
  * @author evaja
  */
 public class Motocicleta {
-    protected int placa; 
+    protected String placa; 
     protected String marca;
     protected String modelo;
     protected String tipo;
     protected Color color;
+    protected Date año;
     private double velocidad;
     private double peso;
     private double consumo;
@@ -24,22 +26,23 @@ public class Motocicleta {
         
     }
 
-    public Motocicleta(int placa, String marca, String modelo, String tipo, Color color, double velocidad, double peso, double consumo) {
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.tipo = tipo;
-        this.color = color;
-        this.velocidad = velocidad;
+    public Motocicleta(String p, String m, String mo, String t , Color c, Date a, double v, double peso, double cons) {
+        this.placa = p;
+        this.marca = m;
+        this.modelo = mo;
+        this.tipo = t;
+        this.color = c;
+        this.año = a;
+        this.velocidad = v;
         this.peso = peso;
-        this.consumo = consumo;
+        this.consumo = cons;
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int pl) {
+    public void setPlaca(String pl) {
         this.placa = pl;
     }
 
@@ -74,7 +77,14 @@ public class Motocicleta {
     public void setColor(Color col) {
         this.color = col;
     }
+     public Date getAño() {
+        return año;
+    }
 
+    public void setAño(Date a) {
+        this.año = a;
+    }
+    
     public double getVelocidad() {
         return velocidad;
     }

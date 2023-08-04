@@ -5,17 +5,19 @@
 package lab3p2_evasalgado;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
  * @author evaja
  */
 public class Autobus {
-    protected int placa; 
+    protected String placa; 
     protected String marca;
     protected String modelo;
     protected String tipo;
     protected Color color; 
+    protected Date año;
     private int cantpasajero;
     private int numejes;
     private double longitud;
@@ -24,22 +26,23 @@ public class Autobus {
         
     }
 
-    public Autobus(int placa, String marca, String modelo, String tipo, Color color, int cantpasajero, int numejes, double longitud) {
+    public Autobus(String placa, String marca, String modelo, String tipo, Color color, Date a, int cantpasajero, int numejes, double longitud) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.tipo = tipo;
         this.color = color;
+        this.año = a;
         this.cantpasajero = cantpasajero;
         this.numejes = numejes;
         this.longitud = longitud;
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int p) {
+    public void setPlaca(String p) {
         this.placa = p;
     }
 
@@ -74,7 +77,13 @@ public class Autobus {
     public void setColor(Color col) {
         this.color = col;
     }
+     public Date getAño() {
+        return año;
+    }
 
+    public void setAño(Date a) {
+        this.año = a;
+    }
     public int getCantpasajero() {
         return cantpasajero;
     }

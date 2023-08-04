@@ -5,6 +5,7 @@
 package lab3p2_evasalgado;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
@@ -12,11 +13,12 @@ import java.awt.Color;
  */
 public class Automovil {
 
-    protected int placa;
+    protected String placa;
     protected String marca;
     protected String modelo;
     protected String tipo;
     protected Color color;
+    protected Date año;
     private String combustible;
     private int puertas;
     private String transmision;
@@ -26,23 +28,24 @@ public class Automovil {
     }
 
    
-    public Automovil(int placa, String marca, String modelo, String tipo, Color color, String combustible, int puertas, String transmision, int asientos) {
+    public Automovil(String placa, String marca, String modelo, String tipo, Color color, Date año, String combustible, int puertas, String transmision, int asientos) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.tipo = tipo;
         this.color = color;
+        this.año=año;
         this.combustible = combustible;
         this.puertas = puertas;
         this.transmision = transmision;
         this.asientos = asientos;
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int pl) {
+    public void setPlaca(String pl) {
        this.placa = pl;
     }
 
@@ -78,6 +81,14 @@ public class Automovil {
         this.color = co;
     }
 
+    public Date getAño() {
+        return año;
+    }
+
+    public void setAño(Date a) {
+        this.año = a;
+    }
+    
     public String getCombustible() {
         return combustible;
     }

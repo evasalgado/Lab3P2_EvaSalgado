@@ -6,13 +6,14 @@ package lab3p2_evasalgado;
 
 import java.awt.Color;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
  * @author evaja
  */
 public class Automovil {
-
+    Scanner leer = new Scanner(System.in);
     protected String placa;
     protected String marca;
     protected String modelo;
@@ -27,26 +28,31 @@ public class Automovil {
     public Automovil() {
     }
 
+    public Automovil(String p) {
+        this.placa = p;
+    }
+
    
-    public Automovil(String placa, String marca, String modelo, String tipo, Color color, Date año, String combustible, int puertas, String transmision, int asientos) {
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.tipo = tipo;
-        this.color = color;
+    public Automovil(String p, String m, String mod, String t, Color c, Date a, String comb, int puer, String tran, int as) {
+        this.placa = p;
+        this.marca = m;
+        this.modelo = mod;
+        this.tipo = t;
+        this.color = c;
         this.año=año;
-        this.combustible = combustible;
-        this.puertas = puertas;
-        this.transmision = transmision;
-        this.asientos = asientos;
+        this.combustible = comb;
+        this.puertas = puer;
+        this.transmision = tran;
+        this.asientos = as;
     }
 
     public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(String pl) {
-       this.placa = pl;
+    public void setPlaca(String p) {
+        this.placa=p;
+        
     }
 
     public String getMarca() {

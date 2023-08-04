@@ -6,6 +6,7 @@ package lab3p2_evasalgado;
 
 import java.awt.Color;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -43,7 +44,7 @@ public class Autobus {
     }
 
     public void setPlaca(String p) {
-        this.placa = p;
+            this.placa = p;
     }
 
     public String getMarca() {

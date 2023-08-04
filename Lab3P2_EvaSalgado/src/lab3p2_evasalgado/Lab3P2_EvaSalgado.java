@@ -54,6 +54,7 @@ public class Lab3P2_EvaSalgado {
                 case 5:
                     break;
                 case 6:
+                    mostrarVehiculo();
                     break;
                 case 7:
                     opcion = 7;
@@ -214,5 +215,19 @@ public class Lab3P2_EvaSalgado {
         System.out.println("Bus ingresado correctamente");
     }
     
-    
+    public static void modificarVehiculo(){
+        
+    }
+     static void mostrarVehiculo(){
+        if (vehiculos.isEmpty()) {
+            System.out.println("No hay nada aun");
+        } else {
+            for (Object vehiculo : vehiculos) {
+                if (vehiculo instanceof Automovil||vehiculo instanceof Motocicleta||vehiculo instanceof Autobus) {
+                        Object object = (Object) vehiculo;
+                        System.out.println(vehiculos.indexOf(vehiculo)+"-"+vehiculo+"\n");
+                    }
+            }
+        }
+    }
 }

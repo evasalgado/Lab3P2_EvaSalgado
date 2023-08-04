@@ -110,7 +110,7 @@ public class Autobus {
 
     @Override
     public String toString() {
-        return "Autobus{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", color=" + color + ", cantpasajero=" + cantpasajero + ", numejes=" + numejes + ", longitud=" + longitud + '}';
+        return "placa: " + placa + "\nmarca: " + marca + "\nmodelo: " + modelo + "\ntipo: " + tipo + "\ncolor:" + color + "\nanio:"+año  + ",\ncantpasajero: " + cantpasajero + "\nnumejes: " + numejes + "\nlongitud: " + longitud ;
     }
     
     
